@@ -17,38 +17,72 @@ package com.google.codeu.codingchallenge;
 import java.util.Collection;
 
 final class MyJSON implements JSON {
+    
+   private ArrayList<E> list;
+   public JSON () {
+       list = new ArrayList<E>();
+   }
 
-  @Override
+  /**
+   * gets object matching string
+   * @return object
+   */
   public JSON getObject(String name) {
-    // TODO: implement this
-    return null;
+    for (Object a:list) {
+        if (a.toString().equals(name)) {
+            return a;
+        }
+    }
+    else {
+        return null;
+    }
   }
 
-  @Override
+  /**
+   * sets value in list
+   * @return new JSON
+   */
   public JSON setObject(String name, JSON value) {
-    // TODO: implement this
-    return this;
+      this.list = name;
+      return this;
   }
 
-  @Override
+  /**
+   * @return string name if name is present in list
+   */
   public String getString(String name) {
-    // TODO: implement this
-    return null;
+     if(this.getObject(name) !null) {
+         return name;
+     }
+     else {
+         return null;
+     }
   }
 
-  @Override
+  /**
+   * sets old string to new string
+   * @return new JSON w/ new value
+   */
   public JSON setString(String name, String value) {
-    // TODO: implement this
+    this.list.setObject(value, this.getObject(name));
     return this;
   }
 
-  @Override
+  /**
+   * copies objects into collection
+   */
   public void getObjects(Collection<String> names) {
-    // TODO: implement this
+      for (Object a:list) {
+        names.add(a);
+      }
   }
 
-  @Override
+  /**
+   * copies names of objects into collection
+   */
   public void getStrings(Collection<String> names) {
-    // TODO: implement this
+      for (Object a:list) {
+          names.add(a.toString());
+        }
   }
 }
