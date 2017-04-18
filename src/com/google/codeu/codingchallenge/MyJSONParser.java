@@ -16,6 +16,10 @@ package com.google.codeu.codingchallenge;
 
 import java.io.IOException;
 
+// Unfortunatly, I did not have time to start this portion of the challenge.
+// I've never encountered/coded a parser before in any of my courses, and
+// by the time I got to it, there was not enough time for me to attempt
+// to teach it to myself. 
 final class MyJSONParser implements JSONParser {
 
   @Override
